@@ -9,14 +9,7 @@
     "sopUrl": "SOP.html#purpose",
     "docUrl": "README.html"
   },
-  {
-    "id": "cnc-probing-basics",
-    "title": "CNC Probing Basics",
-    "description": "Zeroing parts, setting work offsets, and verifying probe calibration.",
-    "youtubeId": "bTqVqk7FSmY",
-    "duration": "7:40",
-    "tags": ["cnc", "probing", "intermediate"]
-  },
+ 
   {
     "id": "gdt-intro",
     "title": "GD&T Basics — Intro",
