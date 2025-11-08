@@ -5,11 +5,7 @@
     "description": "Core policies, PPE, and safe behavior in the machine shop.",
     "youtubeId": "dQw4w9WgXcQ",
     "duration": "5:12",
-    "tags": [
-      "safety",
-      "orientation",
-      "beginner"
-    ],
+    "tags": ["safety", "orientation", "beginner"],
     "sopUrl": "SOP.html#purpose",
     "docUrl": "README.html"
   },
@@ -19,23 +15,16 @@
     "description": "Zeroing parts, setting work offsets, and verifying probe calibration.",
     "youtubeId": "bTqVqk7FSmY",
     "duration": "7:40",
-    "tags": [
-      "cnc",
-      "probing",
-      "intermediate"
-    ]
+    "tags": ["cnc", "probing", "intermediate"]
+  },
+  {
+    "id": "gdt-intro",
+    "title": "GD&T Basics — Intro",
+    "description": "What GD&T is, why it matters, and how the core symbols control form, orientation, and location.",
+    "youtubeId": "G7wnGeR_69k",
+    "duration": "",
+    "tags": ["gd&t", "fundamentals", "machining", "inspection", "training"],
+    "sopUrl": "",
+    "docUrl": ""
   }
-
-
-  [
-    {
-  "id": "gdt-intro",
-  "title": "GD&T Basics — Intro",
-  "description": "What GD&T is, why it matters, and how the core symbols control form, orientation, and location.",
-  "youtubeId": "G7wnGeR_69k",
-  "duration": "",
-  "tags": ["gd&t","fundamentals","machining","inspection","training"],
-  "sopUrl": "",
-  "docUrl": ""
-}
 ]
