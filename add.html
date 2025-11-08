@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add Module — APW Training Library</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <meta name="color-scheme" content="dark">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Add Module</h1>
+    <nav class="top-nav">
+      <a href="index.html">Library</a>
+      <a href="SOP.html">SOP</a>
+      <a href="add.html" class="active">Add</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card" style="padding:16px">
+      <h2 style="margin-top:0">1) Paste a video URL</h2>
+      <p>Works with <strong>YouTube</strong> (watch/share/shorts) and <strong>Loom</strong> share links.</p>
+      <input id="url" type="url" placeholder="https://www.youtube.com/watch?v=AbCdEfGhIjk  OR  https://www.loom.com/share/VIDEO_ID" style="width:100%;margin:8px 0 12px" />
+      <div style="display:flex; gap:8px; flex-wrap:wrap">
+        <input id="title" placeholder="Title (optional — we’ll guess if empty)" />
+        <input id="desc" placeholder="Description (optional)" style="flex:1" />
+        <input id="tags" placeholder="Tags (comma separated, optional)" />
+        <input id="duration" placeholder="Duration (e.g., 6:42, optional)" />
+      </div>
+      <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap">
+        <input id="thumbUrl" placeholder="Custom thumbnail URL (optional)" style="flex:1" />
+        <input id="sopUrl" placeholder="SOP link (optional)" style="flex:1" />
+        <input id="docUrl" placeholder="Docs link (optional)" style="flex:1" />
+      </div>
+      <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap">
+        <button id="make">Make module JSON</button>
+        <button id="copy">Copy JSON</button>
+        <button id="reset">Reset</button>
+      </div>
+      <pre id="out" style="white-space:pre-wrap; background:#0b1220; padding:12px; border-radius:10px; border:1px solid #1f2937; margin-top:12px"></pre>
+    </section>
+
+    <section class="card" style="padding:16px; margin-top:16px">
+      <h2 style="margin-top:0">2) (Optional) Merge into your modules.json</h2>
+      <p>Upload your current <code>modules/modules.json</code> and we’ll append the new module, then you can download the updated file and upload it back to GitHub.</p>
+      <input id="file" type="file" accept="application/json" />
+      <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap">
+        <button id="merge">Merge & Download modules.json</button>
+      </div>
+      <div id="mergeStatus" style="color:#9ca3af; margin-top:8px"></div>
+    </section>
+
+    <section class="card" style="padding:16px; margin-top:16px">
+      <h2 style="margin-top:0">Tips</h2>
+      <ul>
+        <li><strong>YouTube:</strong> we store <code>youtubeId</code>.</li>
+        <li><strong>Loom:</strong> we store <code>loomShareUrl</code>.</li>
+        <li>Or use <code>embedUrl</code> for any custom iframe URL.</li>
+        <li>Module <code>id</code> is auto‑slugged from the title or URL; edit before merging if you want.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>After merging, upload the new <code>modules.json</code> into <code>modules/</code> in your repo.</p>
+  </footer>
+
+  <script src="assets/add.js" type="module"></script>
+</body>
+</html>
