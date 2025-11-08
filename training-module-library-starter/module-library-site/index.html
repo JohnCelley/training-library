@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Training Module Library</title>
+  <meta name="description" content="A simple, easy-to-update library of training modules with video embeds and SOP links."/>
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="preconnect" href="https://www.youtube.com">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Training Module Library</h1>
+    <nav class="top-nav">
+      <a href="index.html" class="active">Library</a>
+      <a href="SOP.html">SOP</a>
+      <a href="README.html">About</a>
+      <a class="github" id="ghLink" target="_blank" rel="noopener">Repo</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <input id="search" type="search" placeholder="Search modules by title, tags, or description…" />
+      <select id="tagFilter">
+        <option value="">Filter by tag…</option>
+      </select>
+      <button id="clearFilters">Clear</button>
+    </section>
+
+    <section id="moduleGrid" class="grid"></section>
+
+    <template id="moduleCard">
+      <article class="card">
+        <div class="thumb-wrap">
+          <img class="thumb" alt="" />
+          <button class="play">Play</button>
+        </div>
+        <div class="card-body">
+          <h3 class="title"></h3>
+          <p class="desc"></p>
+          <div class="meta">
+            <span class="duration"></span>
+            <div class="tags"></div>
+          </div>
+          <div class="links">
+            <a class="sopLink" target="_blank" rel="noopener">SOP</a>
+            <a class="docLink" target="_blank" rel="noopener">Docs</a>
+          </div>
+        </div>
+      </article>
+    </template>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button id="closeModal" class="close" aria-label="Close">×</button>
+      <h2 id="modalTitle"></h2>
+      <div id="videoWrap" class="video-wrap" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Your Company — Easy GitHub Pages site. Update <code>modules/modules.json</code> to add or edit items.</p>
+  </footer>
+
+  <script src="assets/app.js" type="module"></script>
+</body>
+</html>
