@@ -1,11 +1,5 @@
-// Basic client-side app to load modules.json and render cards with search + tag filter + YouTube modal
-
-const state = {
-  modules: [],
-  filtered: [],
-  tags: new Set(),
-};
-
+// LMS app with Loom + generic embeds support
+const state = { modules: [], filtered: [], tags: new Set() };
 const els = {
   grid: document.getElementById('moduleGrid'),
   search: document.getElementById('search'),
@@ -19,7 +13,6 @@ const els = {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Try to infer repo link from GitHub Pages host patterns
 (function setGhLink(){
   const a = document.getElementById('ghLink');
   if (!a) return;
@@ -64,6 +57,22 @@ function applyFilters() {
   render();
 }
 
+function computeEmbedUrl(m) {
+  if (m.embedUrl) return m.embedUrl;
+  if (m.youtubeId) return `https://www.youtube.com/embed/${m.youtubeId}`;
+  if (m.loomId) return `https://www.loom.com/embed/${m.loomId}`;
+  if (m.loomShareUrl) {
+    try { return m.loomShareUrl.replace('/share/', '/embed/'); } catch {}
+  }
+  return null;
+}
+
+function computeThumb(m) {
+  if (m.thumbUrl) return m.thumbUrl;
+  if (m.youtubeId) return `https://i.ytimg.com/vi/${m.youtubeId}/hqdefault.jpg`;
+  return 'assets/placeholder.png';
+}
+
 function render() {
   els.grid.innerHTML = '';
   if (!state.filtered.length) {
@@ -81,7 +90,7 @@ function render() {
     const sopLink = card.querySelector('.sopLink');
     const docLink = card.querySelector('.docLink');
 
-    thumb.src = `https://i.ytimg.com/vi/${m.youtubeId}/hqdefault.jpg`;
+    thumb.src = computeThumb(m);
     thumb.alt = `Thumbnail for ${m.title}`;
     play.addEventListener('click', () => openModal(m));
     title.textContent = m.title;
@@ -96,8 +105,13 @@ function render() {
 }
 
 function openModal(m) {
+  const url = computeEmbedUrl(m);
   els.modalTitle.textContent = m.title;
-  els.videoWrap.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${m.youtubeId}" title="${m.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+  if (url) {
+    els.videoWrap.innerHTML = `<iframe width="100%" height="100%" src="${url}" title="${m.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+  } else {
+    els.videoWrap.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#e5e7eb;padding:20px;text-align:center">No embeddable video URL found. Add <code>youtubeId</code>, <code>loomId</code>, <code>loomShareUrl</code>, or <code>embedUrl</code> to this module.</div>`;
+  }
   els.modal.classList.remove('hidden');
 }
 
