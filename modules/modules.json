@@ -5,7 +5,7 @@
     "description": "Core policies, PPE, and safe behavior in the machine shop.",
     "youtubeId": "dQw4w9WgXcQ",
     "duration": "5:12",
-    "tags": ["safety", "orientation", "beginner"],
+    "tags": ["TEST"],
     "sopUrl": "SOP.html#purpose",
     "docUrl": "README.html"
   },
@@ -16,7 +16,7 @@
     "description": "What GD&T is, why it matters, and how the core symbols control form, orientation, and location.",
     "youtubeId": "G7wnGeR_69k",
     "duration": "",
-    "tags": ["gd&t", "fundamentals", "machining", "inspection", "training"],
+    "tags": ["gd&t", "fundamentals", "inspection", "training"],
     "sopUrl": "",
     "docUrl": ""
   }
