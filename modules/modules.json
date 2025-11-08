@@ -26,7 +26,9 @@
     ]
   }
 
-{
+
+  [
+    {
   "id": "gdt-intro",
   "title": "GD&T Basics — Intro",
   "description": "What GD&T is, why it matters, and how the core symbols control form, orientation, and location.",
