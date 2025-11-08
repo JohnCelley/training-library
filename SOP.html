@@ -1,73 +1,22 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SOP — Training Module Library</title>
-  <link rel="stylesheet" href="assets/style.css" />
-</head>
-<body>
-<header class="site-header">
-  <div style="display:flex; align-items:center; gap:10px;">
-    <img src="assets/logo.png" alt="APW" style="height:32px; width:auto; border-radius:6px;">
-    <h1 style="margin:0;">APW Training Library</h1>
-  </div>
-  <nav class="top-nav">
-    <a href="index.html" class="active">Library</a>
-    <a href="SOP.html">SOP</a>
-    <a href="README.html">About</a>
-    <a class="github" id="ghLink" target="_blank" rel="noopener">Repo</a>
-  </nav>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SOP — APW Training Library</title>
+<link rel="stylesheet" href="assets/style.css"/></head><body>
+<header class="site-header"><h1>Standard Operating Procedure</h1>
+  <nav class="top-nav"><a href="index.html">Library</a><a href="SOP.html" class="active">SOP</a><a href="README.html">About</a></nav>
 </header>
-
-
-  <main class="container prose">
-    <h2 id="purpose">Purpose</h2>
-    <p>This SOP explains how to add and maintain training modules on this GitHub Pages site.</p>
-
-    <h2 id="quick-start">Quick Start (5 steps)</h2>
-    <ol>
-      <li>Open the repository on GitHub in your browser.</li>
-      <li>Click <strong>modules/modules.json</strong> → <em>Edit</em>.</li>
-      <li>Copy an existing object, paste it, and change the fields (title, description, <code>youtubeId</code>, <code>tags</code>, etc.).</li>
-      <li>Commit the change directly to <code>main</code> (or open a PR if you prefer reviews).</li>
-      <li>Refresh the site — changes go live within ~1 minute.</li>
-    </ol>
-
-    <h2 id="fields">Required Fields (per module)</h2>
-    <ul>
-      <li><code>id</code>: a short unique slug (e.g., <code>"probing-fanuc-basics"</code>).</li>
-      <li><code>title</code>: the display title.</li>
-      <li><code>description</code>: one or two sentences.</li>
-      <li><code>youtubeId</code>: the 11-character YouTube video ID.</li>
-      <li><code>duration</code>: optional string like <code>"6:42"</code>.</li>
-      <li><code>tags</code>: array of short labels (e.g., <code>["probing","cnc","beginner"]</code>).</li>
-      <li><code>sopUrl</code>: optional link to a detailed SOP/doc (PDF, Google Doc, etc.).</li>
-      <li><code>docUrl</code>: optional link to any supporting document.</li>
-    </ul>
-
-    <h2 id="youtube">Finding a YouTube ID</h2>
-    <p>From a YouTube URL like <code>https://www.youtube.com/watch?v=AbCdEfGhIjk</code>, the ID is the part after <code>v=</code> — here it’s <code>AbCdEfGhIjk</code>.</p>
-
-    <h2 id="thumbnails">Thumbnails</h2>
-    <p>Thumbnails auto-load from YouTube at <code>https://i.ytimg.com/vi/&lt;youtubeId&gt;/hqdefault.jpg</code>.</p>
-
-    <h2 id="tags">Tags</h2>
-    <p>Choose 3–5 descriptive tags. Tag options auto-populate based on what exists in <code>modules.json</code>.</p>
-
-    <h2 id="review">Change Review (optional)</h2>
-    <p>If you want approvals, make changes on a branch and open a Pull Request. Use GitHub’s code owners for auto-reviewers.</p>
-
-    <h2 id="troubleshooting">Troubleshooting</h2>
-    <ul>
-      <li>If a module doesn’t show up, verify JSON is valid (use <em>Preview</em> or any JSON linter).</li>
-      <li>If a video won’t play, double-check the <code>youtubeId</code>.</li>
-      <li>For PDFs in the repo, link with a relative path (e.g., <code>docs/probing_sop.pdf</code>).</li>
-    </ul>
-  </main>
-
-  <footer class="site-footer">
-    <p>Return to the <a href="index.html">Library</a>.</p>
-  </footer>
-</body>
-</html>
+<main class="container prose">
+<h2 id="purpose">Purpose</h2>
+<p>How to add and maintain training modules on this GitHub Pages site.</p>
+<h2 id="fields">Required fields (per module)</h2>
+<ul>
+<li><code>id</code>: unique slug.</li>
+<li><code>title</code>, <code>description</code>, optional <code>duration</code>, <code>tags</code>.</li>
+<li>For video, provide one of: <code>youtubeId</code>, <code>loomId</code>, <code>loomShareUrl</code>, or a full <code>embedUrl</code>.</li>
+<li>Optional links: <code>sopUrl</code>, <code>docUrl</code>. Optional <code>thumbUrl</code> if you want a custom thumbnail.</li>
+</ul>
+<h2 id="loom">Loom</h2>
+<p>Paste your Loom share link in <code>loomShareUrl</code>. We convert it to the embed URL for you. Example: <code>"loomShareUrl": "https://www.loom.com/share/VIDEO_ID"</code>.</p>
+</main>
+<footer class="site-footer"><p>Return to the <a href="index.html">Library</a>.</p></footer>
+</body></html>
